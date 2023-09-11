@@ -7,8 +7,8 @@ int main() {
 
     // Image
 
-    int image_width = 2160;
-    int image_height = 2160;
+    int image_width = 2160*5;
+    int image_height = 2160*5;
 
     // float x_min = -0.05;
     // float x_max = 0.05;
@@ -39,13 +39,13 @@ int main() {
             int b = 0;
             
             for (int n = 0; n < iterations; ++n) {
-                if (std::abs(pow(z, 2.0) + c) > 2) {
+                z = pow(z, 2.0) + c;
+                if (std::abs(z) > 2) {
                     r = 10 + n*(245/iterations);
                     g = 10 + n*(245/iterations);
                     b = 10 + n*(245/iterations);
                     break;
                 }
-                z = pow(z, 2.0) + c;
             }
 
             std::cout << r << ' ' << g << ' ' << b << '\n';
